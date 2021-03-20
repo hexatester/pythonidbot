@@ -66,11 +66,11 @@ Probably. <b>Just ask your question and somebody will help!</b>
 
 
 def list_available_hints(update: Update, context: CallbackContext):
-    message = "You can use the following hashtags to guide new members:\n\n"
+    message = "Anda dapat menggunakan hashtag berikut untuk memandu anggota baru:\n\n"
     message += "\n".join(
         "🗣 {tag} ➖ {help}".format(tag=k, help=v["help"]) for k, v in HINTS.items()
     )
-    message += "\n\nMake sure to reply to another message, so I know who to refer to."
+    message += "\n\nPastikan untuk membalas pesan lain, jadi saya tahu siapa yang harus dirujuk."
     update.effective_message.reply_text(
         message, parse_mode=ParseMode.HTML, disable_web_page_preview=True
     )
