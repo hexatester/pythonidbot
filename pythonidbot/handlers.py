@@ -1,9 +1,9 @@
 from telegram.ext import Dispatcher
 
-from bot.callback import register_callbacks
-from bot.command import register_commands
-from bot.conversation import register_conversations
-from bot.error import register_errors
+from pythonidbot.callback import register_callbacks
+from pythonidbot.command import register_commands
+from pythonidbot.conversation import register_conversations
+from pythonidbot.error import register_errors
 
 REGISTERS = [
     register_errors,
@@ -14,6 +14,5 @@ REGISTERS = [
 
 
 def register(dispatcher: Dispatcher):
-    if REGISTERS:
-        for register in REGISTERS:
-            register(dispatcher)
+    for register in REGISTERS:
+        register(dispatcher)

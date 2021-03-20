@@ -1,8 +1,8 @@
 import sys
 
 from telegram.ext import Updater
-from bot.config import BOT_TOKEN, PORT, APP_URL
-from bot.handlers import register
+from pythonidbot.config import BOT_TOKEN, PORT, APP_URL
+from pythonidbot.handlers import register
 
 
 def main():
