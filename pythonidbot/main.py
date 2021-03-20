@@ -15,9 +15,9 @@ def main():
             port=PORT,
             url_path=BOT_TOKEN,
         )
-        updater.idle()
     else:
         updater.start_polling()
+    updater.idle()
 
 
 if __name__ == "__main__":
