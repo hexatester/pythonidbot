@@ -26,11 +26,12 @@ def main():
     register_handlers(updater.dispatcher)
     register_taghints(updater.dispatcher)
     if PORT:
-        updater.bot.setWebhook(APP_URL + BOT_TOKEN)
+        # updater.bot.setWebhook(APP_URL + BOT_TOKEN)
         updater.start_webhook(
             listen="0.0.0.0",
             port=PORT,
             url_path=BOT_TOKEN,
+            webhook_url=APP_URL + BOT_TOKEN,
         )
     else:
         updater.start_polling()
