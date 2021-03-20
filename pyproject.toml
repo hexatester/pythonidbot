@@ -5,7 +5,7 @@ description = "Bot telegram programmer python indonesia. "
 authors = ["hexatester <hexatester@protonmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 python-telegram-bot = "^13.4.1"
 ujson = "^4.0.2"
 attrs = "^20.3.0"
