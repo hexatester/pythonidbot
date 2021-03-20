@@ -1,6 +1,6 @@
 {
-    "name": "ptb-skeleton",
-    "desctiption": "Skeleton for python-telegram-bot",
+    "name": "pythonidbot",
+    "desctiption": "Bot telegram programmer python indonesia",
     "keywords": [
         "python",
         "telegram",
@@ -8,15 +8,15 @@
         "telegram-bot",
         "python-telegram-bot"
     ],
-    "website": "https://github.com/hexatester/ptb-skeleton/",
-    "repository": "https://github.com/hexatester/ptb-skeleton/",
+    "website": "https://github.com/hexatester/pythonidbot/",
+    "repository": "https://github.com/hexatester/pythonidbot/",
     "env": {
         "BOT_TOKEN": {
-            "description": "A token for your bot from @BotFather (https://t.me/BotFather)",
-            "value": "input your token here"
+            "description": "token bot dari @BotFather (https://t.me/BotFather)",
+            "value": "masukkan token di sini"
         },
         "APP_URL": {
-            "description": "Heroku app url example `https://myapp.herokuapp.com/`",
+            "description": "Url aplikasi heroku, contoh `https://myapp.herokuapp.com/`",
             "value": "https://<app name>.herokuapp.com/"
         }
     }
