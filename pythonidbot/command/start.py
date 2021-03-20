@@ -1,12 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# This program is dedicated to the public domain under the CC0 license.
-from telegram.ext import CommandHandler
+from telegram import Update
+from telegram.ext import CallbackContext, CommandHandler
 
 
-def start(update, context):
+def start(update: Update, context: CallbackContext):
     """Send a message when the command /start is issued."""
-    update.message.reply_text("Selamat datang", disable_web_page_preview=True)
+    update.message.reply_text(
+        "Hai. Aku bot yang mengumumkan aturan di python indonesia"
+    )
 
 
 START_HANDLERS = [CommandHandler("start", start)]
