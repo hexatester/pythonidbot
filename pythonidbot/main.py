@@ -5,7 +5,8 @@ from telegram.ext import Updater
 from typing import List, Optional
 
 from pythonidbot.config import BOT_TOKEN, PORT, APP_URL, DISABLED_LOGGER
-from pythonidbot.handlers import register
+from pythonidbot.handlers import register as register_handlers
+from pythonidbot.taghints import register as register_taghints
 
 
 def set_logging(debug: bool = False, disabled: Optional[List[str]] = None):
@@ -22,7 +23,8 @@ def set_logging(debug: bool = False, disabled: Optional[List[str]] = None):
 def main():
     set_logging(not bool(APP_URL))
     updater = Updater(BOT_TOKEN)
-    register(updater.dispatcher)
+    register_handlers(updater.dispatcher)
+    register_taghints(updater.dispatcher)
     if PORT:
         updater.bot.setWebhook(APP_URL + BOT_TOKEN)
         updater.start_webhook(
