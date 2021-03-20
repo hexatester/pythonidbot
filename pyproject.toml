@@ -8,6 +8,7 @@ authors = ["hexatester <hexatester@protonmail.com>"]
 python = "^3.8"
 python-telegram-bot = "^13.4.1"
 ujson = "^4.0.2"
+attrs = "^20.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
