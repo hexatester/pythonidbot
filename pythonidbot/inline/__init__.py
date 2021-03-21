@@ -10,12 +10,14 @@ def inline_handler(update: Update, context: CallbackContext):
     if not update.inline_query or not update.inline_query.query:
         return
     if len(update.inline_query.query) < 3:
-        return update.inline_query.answer(HINTS.hints_article)
+        update.inline_query.answer(HINTS.hints_article)
+        return
     articles = list()
-    articles.extend(Hints.find(update.inline_query.query))
+    articles.extend(HINTS.find(update.inline_query.query))
     if not articles:
         articles.extend(HINTS.hints_article)
-    return update.inline_query.answer(articles)
+    update.inline_query.answer(articles)
+    return
 
 
 HANDLERS = []
