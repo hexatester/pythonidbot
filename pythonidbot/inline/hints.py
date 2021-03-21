@@ -1,6 +1,6 @@
 import logging
 from fuzzywuzzy import process
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineQueryResultArticle, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackContext
 from typing import List, Optional
 
@@ -48,7 +48,7 @@ class Hints:
         message: str = data["message"]
         if "{query}" in message:
             query = query or data["default"]
-            message.replace("{query}", query)
+            message = message.replace("{query}", query)
         if "buttons" in data:
             markup = self.make_button(data["buttons"])
         return article(
