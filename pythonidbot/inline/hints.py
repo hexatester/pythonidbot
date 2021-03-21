@@ -12,6 +12,7 @@ class Hints:
     def __init__(self, hints: Optional[List[dict]] = None):
         self.logger = logging.getLogger(__name__)
         self.hints = hints or list(HINTS.values())
+        self.hints_article = [self.article(hint) for hint in self.hints]
         self.hints_q_dict = dict(enumerate([hint["help"] for hint in self.hints]))
 
     def __call__(
@@ -36,11 +37,7 @@ class Hints:
             limit=limit,
         )
         self.logger.debug(f"Ditemukan {len(best_hints)} kemungkinan hint")
-        return (
-            [self.article(self.hints[z]) for (x, y, z) in best_hints]
-            if best_hints
-            else []
-        )
+        return [self.hints_article[z] for (x, y, z) in best_hints] if best_hints else []
 
     def article(
         self,
