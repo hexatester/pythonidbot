@@ -1,6 +1,11 @@
 import logging
 from fuzzywuzzy import process
-from telegram import Update, InlineQueryResultArticle, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import (
+    Update,
+    InlineQueryResultArticle,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+)
 from telegram.ext import CallbackContext
 from typing import List, Optional
 
@@ -53,6 +58,7 @@ class Hints:
             markup = self.make_button(data["buttons"])
         return article(
             title=data["help"],
+            key=data["key"],
             description=message,
             message_text=message,
             reply_markup=markup,
