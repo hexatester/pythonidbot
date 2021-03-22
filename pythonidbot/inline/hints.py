@@ -2,6 +2,7 @@ import logging
 from fuzzywuzzy import process
 from telegram import (
     Update,
+    InlineQuery,
     InlineQueryResultArticle,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -19,6 +20,7 @@ class Hints:
         self.hints = hints or list(HINTS.values())
         self.hints_article = [self.article(hint) for hint in self.hints]
         self.hints_q_dict = dict(enumerate([hint["help"] for hint in self.hints]))
+        self.hashtag_q_dict = dict(enumerate([hint["key"] for hint in self.hints]))
 
     def __call__(
         self,
@@ -70,3 +72,25 @@ class Hints:
             keyboards.append(InlineKeyboardButton(**data))
         menu = build_menu(keyboards, 1)
         return InlineKeyboardMarkup(menu)
+
+    def hashtag(
+        self,
+        inline_query: InlineQuery,
+        score_cutoff: int = 60,
+    ) -> List[InlineQueryResultArticle]:
+        query = inline_query.query
+        query = query.lstrip("#")
+        hashtag = query.split(" ")[0]
+        query = query.lstrip(hashtag)
+        if len(hashtag) < 3 or not query:
+            return
+        result = process.extractOne(
+            hashtag,
+            choices=self.hashtag_q_dict,
+            score_cutoff=score_cutoff,
+        )
+        if not result:
+            return
+        value, score, index = result
+        results = [self.article(self.hints[index], query=query)]
+        return inline_query.answer(results)

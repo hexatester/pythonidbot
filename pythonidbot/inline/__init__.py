@@ -11,8 +11,11 @@ def inline_handler(update: Update, context: CallbackContext):
         return
     inline_query = update.inline_query
     articles = list()
-    if len(inline_query.query) >= 3:
-        articles.extend(HINTS.find(inline_query.query))
+    if len(inline_query.query) < 4:
+        return inline_query.answer(HINTS.hints_article)
+    if inline_query.query.startswith("#"):
+        return HINTS.hashtag(inline_query)
+    articles.extend(HINTS.find(inline_query.query))
     if not articles:
         articles.extend(HINTS.hints_article)
     inline_query.answer(articles)
