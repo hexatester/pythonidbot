@@ -7,14 +7,15 @@ HINTS = Hints()
 
 
 def inline_handler(update: Update, context: CallbackContext):
-    if not update.inline_query or not update.inline_query.query:
+    if not update.inline_query:
         return
+    inline_query = update.inline_query
     articles = list()
-    if len(update.inline_query.query) >= 3:
-        articles.extend(HINTS.find(update.inline_query.query))
+    if len(inline_query.query) >= 3:
+        articles.extend(HINTS.find(inline_query.query))
     if not articles:
         articles.extend(HINTS.hints_article)
-    update.inline_query.answer(articles)
+    inline_query.answer(articles)
     return
 
 
