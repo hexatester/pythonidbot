@@ -17,6 +17,7 @@ from pythonidbot.utils.helpers import article, build_menu
 class Hints:
     def __init__(self, hints: Optional[List[dict]] = None):
         self.logger = logging.getLogger(__name__)
+        self.score_cutoff = 60
         self.hints = hints or list(HINTS.values())
         self.hints_q_dict = dict(enumerate([hint["help"] for hint in self.hints]))
         self.hashtag_q_dict = dict(enumerate([hint["key"] for hint in self.hints]))
@@ -75,12 +76,10 @@ class Hints:
         menu = build_menu(keyboards, 1)
         return InlineKeyboardMarkup(menu)
 
-    def hashtag(
-        self,
-        inline_query: InlineQuery,
-        score_cutoff: int = 60,
-    ) -> List[InlineQueryResultArticle]:
-        query = inline_query.query
+    def hashtag_handler(self, update: Update, context: CallbackContext):
+        if not update.inline_query:
+            return
+        query = update.inline_query.query
         query = query.lstrip("#")
         hashtag = query.split(" ")[0]
         query = query.lstrip(hashtag)
@@ -89,15 +88,10 @@ class Hints:
         result = process.extractOne(
             hashtag,
             choices=self.hashtag_q_dict,
-            score_cutoff=score_cutoff,
+            score_cutoff=self.score_cutoff,
         )
         if not result:
             return
         value, score, index = result
         results = [self.article(self.hints[index], query=query)]
-        return inline_query.answer(results)
-
-    def hashtag_handler(self, update: Update, context: CallbackContext):
-        if not update.inline_query:
-            return
-        return self.hashtag(update.inline_query)
+        return update.inline_query.answer(results)
