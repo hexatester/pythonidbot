@@ -59,7 +59,7 @@ def truncate_str(str, max):
 
 
 # https://github.com/python-telegram-bot/rules-bot/blob/master/components/inlinequeries.py
-def article(title="", description="", message_text="", key=None, reply_markup=None):
+def article(title="", description="", message_text="", key=None, reply_markup=None, thumb_url=None):
     return InlineQueryResultArticle(
         id=key or uuid4(),
         title=title,
@@ -68,4 +68,5 @@ def article(title="", description="", message_text="", key=None, reply_markup=No
             message_text=message_text,
         ),
         reply_markup=reply_markup,
+        thumb_url=thumb_url,
     )
