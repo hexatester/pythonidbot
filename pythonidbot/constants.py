@@ -1,7 +1,13 @@
 HINTS = {
+    "#welcome": {
+        "key": "#aturan",
+        "message": """{query}\nSilahkan baca Aturan Group PythonID di https://pythonid.github.io/aturan.html\nRekomendasi sumber belajar di https://pythonid.github.io/belajar.html\nPanduan Bertanya Yang Baik di https://pythonid.github.io/bertanya.html""",
+        "default": "Selamat datang.",
+        "help": "Sambut anggota baru",
+    },
     "#aturan": {
         "key": "#aturan",
-        "message": "{query}\nSilahkan baca Aturan Group Telegram PythonID di https://pythonid.github.io/aturan.html",
+        "message": "{query}\nSilahkan baca Aturan Group PythonID di https://pythonid.github.io/aturan.html",
         "default": "Halo.",
         "help": "Kirim peraturan group",
     },
