@@ -66,8 +66,6 @@ def article(title="", description="", message_text="", key=None, reply_markup=No
         description=description,
         input_message_content=InputTextMessageContent(
             message_text=message_text,
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
         ),
         reply_markup=reply_markup,
     )
