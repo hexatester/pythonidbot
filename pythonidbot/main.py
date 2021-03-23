@@ -1,7 +1,8 @@
 import logging
 import sys
 
-from telegram.ext import Updater
+from telegram import ParseMode
+from telegram.ext import Updater, Defaults
 from typing import List, Optional
 
 from pythonidbot.config import BOT_TOKEN, PORT, APP_URL, DISABLED_LOGGER
@@ -22,7 +23,14 @@ def set_logging(debug: bool = False, disabled: Optional[List[str]] = None):
 
 def main():
     set_logging(not bool(APP_URL))
-    updater = Updater(BOT_TOKEN)
+    defaults = Defaults(
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True,
+    )
+    updater = Updater(
+        token=BOT_TOKEN,
+        defaults=defaults,
+    )
     register_handlers(updater.dispatcher)
     register_taghints(updater.dispatcher)
     if PORT:
