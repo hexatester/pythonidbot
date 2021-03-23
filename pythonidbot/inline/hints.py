@@ -96,3 +96,8 @@ class Hints:
         value, score, index = result
         results = [self.article(self.hints[index], query=query)]
         return inline_query.answer(results)
+
+    def hashtag_handler(self, update: Update, context: CallbackContext):
+        if not update.inline_query:
+            return
+        return self.hashtag(update.inline_query)
