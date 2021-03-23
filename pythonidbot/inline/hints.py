@@ -18,9 +18,12 @@ class Hints:
     def __init__(self, hints: Optional[List[dict]] = None):
         self.logger = logging.getLogger(__name__)
         self.hints = hints or list(HINTS.values())
-        self.hints_article = [self.article(hint) for hint in self.hints]
         self.hints_q_dict = dict(enumerate([hint["help"] for hint in self.hints]))
         self.hashtag_q_dict = dict(enumerate([hint["key"] for hint in self.hints]))
+
+    @property
+    def hints_article(self):
+        return [self.article(hint) for hint in self.hints]
 
     def __call__(
         self,
@@ -60,7 +63,6 @@ class Hints:
             markup = self.make_button(data["buttons"])
         return article(
             title=data["help"],
-            key=data["key"],
             description=f'{data["key"]}: {message}',
             message_text=message,
             reply_markup=markup,
