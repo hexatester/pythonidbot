@@ -53,7 +53,7 @@ class SearchInline:
             self.inline_article(
                 title="🐍 PyPi",
                 description=f'Cari "{query}" via PyPi',
-                message_text=f'Pencarian via 🗄<i>PyPi?</i>\n🔍 <a href="https://pypi.org/search/?q={quoted_query}">{query}</a>',
+                message_text=f'Pencarian via 🐍<i>PyPi?</i>\n🔍 <a href="https://pypi.org/search/?q={quoted_query}">{query}</a>',
                 thumb_url="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png",
             ),
             self.inline_article(
@@ -61,6 +61,12 @@ class SearchInline:
                 description=f'Cari "{query}" via Bing',
                 message_text=f'Pencarian via 👽<i>Bing?</i>\n🔍 <a href="https://bing.com/search?q={quoted_query}">{query}</a>',
                 thumb_url="https://pbs.twimg.com/profile_images/688769847900033024/Zdfx4cj5_400x400.png",
+            ),
+            self.inline_article(
+                title="📺 YouTube",
+                description=f'Cari "{query}" via YouTube',
+                message_text=f'Pencarian via 📺<i>YouTube?</i>\n🔍 <a href="https://www.youtube.com/results?search_query={quoted_query}">{query}</a>',
+                thumb_url="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Youtube-logo-white.png/240px-Youtube-logo-white.png",
             ),
         ]
 
