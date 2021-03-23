@@ -61,7 +61,7 @@ class Hints:
         return article(
             title=data["help"],
             key=data["key"],
-            description=message,
+            description=f'{data["key"]}: {message}',
             message_text=message,
             reply_markup=markup,
         )
@@ -82,7 +82,7 @@ class Hints:
         query = query.lstrip("#")
         hashtag = query.split(" ")[0]
         query = query.lstrip(hashtag)
-        if len(hashtag) < 3 or not query:
+        if len(hashtag) < 3:
             return
         result = process.extractOne(
             hashtag,
