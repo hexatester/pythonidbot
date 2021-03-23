@@ -51,6 +51,12 @@ class SearchInline:
                 thumb_url="https://wikipedia.org/static/apple-touch/wikipedia.png",
             ),
             self.inline_article(
+                title="🐍 PyPi",
+                description=f'Cari "{query}" via PyPi',
+                message_text=f'Pencarian via 🗄<i>PyPi?</i>\n🔍 <a href="https://pypi.org/search/?q={quoted_query}">{query}</a>',
+                thumb_url="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png",
+            ),
+            self.inline_article(
                 title="👽 Bing",
                 description=f'Cari "{query}" via Bing',
                 message_text=f'Pencarian via 👽<i>Bing?</i>\n🔍 <a href="https://bing.com/search?q={quoted_query}">{query}</a>',
