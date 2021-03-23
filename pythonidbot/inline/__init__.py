@@ -1,9 +1,11 @@
 from telegram import Update
 from telegram.ext import CallbackContext, InlineQueryHandler
 from .hints import Hints
+from .search import SearchInline
 
 
 HINTS = Hints()
+SEARCH = SearchInline()
 
 
 def inline_handler(update: Update, context: CallbackContext):
@@ -30,6 +32,7 @@ def inline_handler(update: Update, context: CallbackContext):
 
 HANDLERS = []
 HANDLERS.append(InlineQueryHandler(HINTS.hashtag_handler, pattern=r"^#\S+"))
+HANDLERS.append(InlineQueryHandler(SEARCH, pattern=r"^\?\S+"))
 HANDLERS.append(InlineQueryHandler(inline_handler))
 
 
