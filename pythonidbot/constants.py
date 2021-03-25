@@ -13,16 +13,15 @@ HINTS = {
     },
     "#private": {
         "key": "#private",
-        "message": "Tolong jangan spam group dengan {query}, dan sebaiknya "
-        "obrolan pribadi dengan saya. Terimakasih, anggota lain akan menghargainya 😊",
+        "message": """Tolong jangan spam group dengan {query}, dan sebaiknya chat pribadi dengan saya. Terimakasih, anggota lain akan menghargainya 😊""",
         "default": "pencarian atau perintah",
         "buttons": [
             {
-                "text": "🤖 Ke obrolan pribadi",
+                "text": "🤖 Ke chat pribadi",
                 "url": "https://t.me/pitonidbot",
             }
         ],
-        "help": "Beri tahu anggota untuk berhenti mengirim spam dan beralih ke obrolan pribadi",
+        "help": "Beri tahu untuk berhenti mengirim spam dan beralih ke chat pribadi",
     },
     "#meta": {
         "key": "#meta",
@@ -36,17 +35,17 @@ Mungkin. <b>Ajukan saja pertanyaan Anda dan seseorang akan membantu!</b>
         "key": "#belajar",
         "message": "{query}\nKami sudah mengumpulkan rekomendasi sumber belajar di https://pythonid.github.io/belajar.html",
         "help": "Rekomendasi Anggota Untuk Mulai Belajar Python",
-        "default": "Oh, Halo! Rupanya ada yang ingin bergabung dengan komunitas pengembang python ❤️ ",
+        "default": "Oh, hai! Rupanya ada yang ingin bergabung dengan komunitas pengembang python ❤️ ",
     },
     "#bertanya": {
         "key": "#bertanya",
-        "message": "{query}\nAgar kami tidak segan menjawab pertanyaan anda silahkan mohon dibaca Bertanya Yang Baik di https://pythonid.github.io/bertanya.html",
+        "message": "{query}\nAgar kami tidak segan menjawab pertanyaan anda, silahkan dibaca Bertanya Yang Baik di https://pythonid.github.io/bertanya.html",
         "help": "Bagaimana Bertanya Yang Baik",
         "default": "Halo",
     },
     "#pastebin": {
         "key": "#pastebin",
-        "message": """{query}\nSebaiknya poskan kode menggunakan pastebin. https://pastebin.com/ adalah yang paling populer, tetapi ada banyak alternatif di luar sana. Tentu saja, untuk potongan yang sangat pendek, teks sudah cukup. Atau setidaknya format teks sebagai monospace. Terimakasih""",
+        "message": """{query}\nSebaiknya kirimkan kode menggunakan pastebin. https://pastebin.com/ adalah yang paling populer, tetapi ada banyak alternatif di luar sana. Tentu saja, untuk potongan kode yang sangat pendek, teks sudah cukup. Atau setidaknya format teks sebagai monospace. Terimakasih""",
         "help": "Beri tahu pengguna agar tidak mengirim kode sebagai teks atau gambar.",
         "default": "Halo",
     },
@@ -64,13 +63,13 @@ Mungkin. <b>Ajukan saja pertanyaan Anda dan seseorang akan membantu!</b>
     },
     "#janganping": {
         "key": "#janganping",
-        "message": """{query}\nHarap hanya sebutkan atau balas pengguna secara langsung jika Anda menindaklanjuti percakapan dengan mereka. Jika tidak, ajukan pertanyaan Anda dan tunggu apakah seseorang memiliki solusi untuk Anda - begitulah cara kerja grup ini 😉 Perhatikan juga bahwa tag <code> @admin </code> hanya digunakan untuk melaporkan spam atau penyalahgunaan!""",
+        "message": """{query}\nHarap hanya sebutkan atau balas pengguna secara langsung jika Anda menindaklanjuti percakapan dengan mereka. Jika tidak, ajukan pertanyaan Anda dan tunggu apakah seseorang memiliki solusi untuk Anda - begitulah cara kerja grup ini 😉\nPerhatikan juga bahwa tag <code> @admin </code> hanya digunakan untuk melaporkan spam atau penyalahgunaan!""",
         "default": "Halo.",
         "help": "Beri tahu pengguna untuk tidak melakukan ping secara acak ke Anda.",
     },
     "#screenshot": {
         "key": "#screenshot",
-        "message": """{query}\nUntuk screenshot ke telegram di laptop tekan Prt Scr di layar yang ingin discreenshot, kemudian buka aplikasi telegram (https://web.telegram.org/) dan paste (ctrl + v) ke chat yang tujuan.""",
+        "message": """{query}\nUntuk screenshot ke telegram, di laptop/pc tekan Prt Scr di layar yang ingin discreenshot, kemudian buka aplikasi telegram (https://web.telegram.org/) dan paste (ctrl + v) ke chat yang dituju.""",
         "default": "Halo.",
         "help": "Beri tahu cara screenshot yang benar.",
     },
